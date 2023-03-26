@@ -1,11 +1,14 @@
+import React, { Component } from "react";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello Word</h1>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <h1>Hello Word</h1>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
