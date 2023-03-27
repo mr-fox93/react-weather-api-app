@@ -37,7 +37,9 @@ const App = () => {
     <div className="App">
       <h1>Weather App</h1>
       <input
+        className="input"
         type="text"
+        placeholder="enter city name ..."
         value={city}
         onChange={(event) => setCity(event.target.value)}
       />
@@ -46,7 +48,7 @@ const App = () => {
       ) : weatherData ? (
         <div>
           <p>
-            Weather:{" "}
+            Weather:{weatherData.weather[0].main}
             {weatherData.weather[0].main === "Clouds"
               ? emoji["Clouds"]
               : emoji["Clear"]}
