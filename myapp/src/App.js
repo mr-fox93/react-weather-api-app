@@ -28,6 +28,11 @@ const App = () => {
       });
   }, [city]);
 
+  const emoji = {
+    Clouds: "☁️",
+    Clear: "☀️",
+  };
+
   return (
     <div className="App">
       <h1>Weather App</h1>
@@ -40,9 +45,17 @@ const App = () => {
         <div>{error}</div>
       ) : weatherData ? (
         <div>
-          <p>Weather: {weatherData.weather[0].main}</p>
-          <p>Temperature: {weatherData.main.temp}°C</p>
-          <p>Wind Speed: {weatherData.wind.speed}m/s</p>
+          <p>
+            Weather:{" "}
+            {weatherData.weather[0].main === "Clouds"
+              ? emoji["Clouds"]
+              : emoji["Clear"]}
+          </p>
+          <p>City: {weatherData.name}</p>
+          <p>Temperature: {weatherData.main.temp}°C 🌡️ </p>
+          <p> Sensed Temperature: {weatherData.main.feels_like}°C 🌡️ </p>
+          <p>Wind Speed: {weatherData.wind.speed}m/s 🌬️</p>
+          <p>Pressure: {weatherData.main.pressure}hPa </p>
         </div>
       ) : (
         <div>No weather data available</div>
